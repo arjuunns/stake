@@ -134,6 +134,7 @@ button {
 .container {
     width: 100vw;
     height: fit-content;
+    min-height: 100vh;
     --s: 37px; /* control the size */
   
     --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;

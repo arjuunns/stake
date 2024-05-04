@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StakeCalulator</title>
-    <link rel="website icon" type="png" href="/money.png" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+    
+            <h1>Stake Calculator</h1>
 
-    <h1>Stake Calculator</h1>
+            <div class="animation">
+
+            
+            <div class="loader">
+                <svg viewBox="0 0 80 80">
+            <circle id="test" cx="40" cy="40" r="32"></circle>
+        </svg>
+    </div>
+    
+    <div class="loader triangle">
+        <svg viewBox="0 0 86 80">
+            <polygon points="43 8 79 72 7 72"></polygon>
+        </svg>
+    </div>
+    
+    <div class="loader">
+        <svg viewBox="0 0 80 80">
+            <rect x="8" y="8" width="64" height="64"></rect>
+        </svg>
+    </div>
+</div>
+    
+
+    
+    
+
+
+
     <input
   placeholder="the amount you want to invest"
   class="amount input"
@@ -30,30 +58,47 @@
   type="text"
 />
     <button onclick="calculate()">SUBMIT</button>
-    <div class="ans">
+    <div class="ans hide">
         <h2 class="title">
             Amount on lower odds:      
         </h2>
-        <p class="lower-amount hide"></p>
+        <p class="lower-amount"></p>
     </div>
-    <div class="ans">
+    <div class="ans hide">
         <h2 class="title">
             Amount on higher odds: 
         </h2>
-        <p class="higher-amount hide"></p>
+        <p class="higher-amount"></p>
     </div>
-    <div class="ans">
+    <div class="ans hide">
         <h2 class="title">
             Maximum Return: 
         </h2>
-        <p class="max-return hide"></p>
+        <p class="max-return"></p>
     </div>
-    <div class="ans">
+    <div class="ans hide">
         <h2 class="title">
             Maximum Loss:      
         </h2>
-        <p class="max-loss hide"></p>
+        <p class="max-loss"></p>
     </div>
+    <div class="ans hide">
+        <h2 class="title">
+            Maximum Profit:      
+        </h2>
+        <p class="max-profit"></p>
+    </div>
+
+
+    <section class="how">
+        <h1>How to use stake calculator</h1>
+        <video controls>
+            <source src="/video_2024-05-04_21-20-41.mp4" type="video/mp4">
+            Your browser does not support HTML video.
+          </video>
+          
+    </section>
+
 
     <p class="footer-heart">
         Made with <g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">
@@ -62,7 +107,6 @@
       <a href="https://github.com/Manpreet-Singh-1">Manpreet</a>
     </p>
 
-    <script src="/script.js"></script>
     <script>
         function calculate() {
     const totalInput = document.querySelector(".amount").value;
@@ -85,18 +129,19 @@
     const team2Formatted = team2.toFixed(2);
     const maxReturnFormatted = maxReturn.toFixed(2);
     const maxLossFormatted = maxLoss.toFixed(2);
+    const  maxProfitFormatted = maxProfit.toFixed(2);
 
     document.querySelector(".lower-amount").innerText = team1Formatted;
     document.querySelector(".higher-amount").innerText = team2Formatted;
     document.querySelector(".max-return").innerText = maxReturnFormatted;
     document.querySelector(".max-loss").innerText = maxLossFormatted;
+    document.querySelector(".max-profit").innerText = maxProfitFormatted;
 
     // Show the results
-    document.querySelectorAll(".hide").forEach(el => {
+    document.querySelectorAll(".ans").forEach(el => {
         el.classList.remove("hide");
     });
 }
-
     </script>
     </div>
 </body>

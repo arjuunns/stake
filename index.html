@@ -48,31 +48,38 @@
     <script src="/script.js"></script>
     <script>
         function calculate() {
-            const totalInput = document.querySelector(".amount").value;
-            const lowerOddsInput = document.querySelector(".lower-odds").value;
-            const upperOddsInput = document.querySelector(".upper-odds").value;
+    const totalInput = document.querySelector(".amount").value;
+    const lowerOddsInput = document.querySelector(".lower-odds").value;
+    const upperOddsInput = document.querySelector(".upper-odds").value;
 
-            const total = parseFloat(totalInput);
-            const lowerOdds = parseFloat(lowerOddsInput);
-            const upperOdds = parseFloat(upperOddsInput);
+    const total = parseFloat(totalInput);
+    const lowerOdds = parseFloat(lowerOddsInput);
+    const upperOdds = parseFloat(upperOddsInput);
 
-            const team2 = total * (lowerOdds / (lowerOdds + upperOdds));
-            const team1 = total - team2;
+    const team2 = total * (lowerOdds / (lowerOdds + upperOdds));
+    const team1 = total - team2;
 
-            const maxReturn = team1 * lowerOdds + team2 * upperOdds;
-            const maxLoss = team2 * upperOdds - total;
-            const maxProfit = maxReturn - total;
+    const maxReturn = team1 * lowerOdds + team2 * upperOdds;
+    const maxLoss = team2 * upperOdds - total;
+    const maxProfit = maxReturn - total;
 
-            document.querySelector(".lower-amount").innerText = `${team1}`;
-            document.querySelector(".higher-amount").innerText = `${team2}`;
-            document.querySelector(".max-return").innerText = `${maxReturn}`;
-            document.querySelector(".max-loss").innerText = ` ${maxLoss}`;
+    // Restricting to two decimal points
+    const team1Formatted = team1.toFixed(2);
+    const team2Formatted = team2.toFixed(2);
+    const maxReturnFormatted = maxReturn.toFixed(2);
+    const maxLossFormatted = maxLoss.toFixed(2);
 
-            // Show the results
-            document.querySelectorAll(".hide").forEach(el => {
-                el.classList.remove("hide");
-            });
-        }
+    document.querySelector(".lower-amount").innerText = team1Formatted;
+    document.querySelector(".higher-amount").innerText = team2Formatted;
+    document.querySelector(".max-return").innerText = maxReturnFormatted;
+    document.querySelector(".max-loss").innerText = maxLossFormatted;
+
+    // Show the results
+    document.querySelectorAll(".hide").forEach(el => {
+        el.classList.remove("hide");
+    });
+}
+
     </script>
 </body>
 </html>

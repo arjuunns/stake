@@ -342,4 +342,31 @@ video{
   margin: 0 16px;
 }
 
- 
+.footer {
+  /* background-color: #f2f2f2; */
+  padding-bottom: 20px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  text-decoration: none;
+  /* color: #333; Or any color you prefer */
+}
+
+.footer-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-heart img {
+  margin: 0 5px;
+}
